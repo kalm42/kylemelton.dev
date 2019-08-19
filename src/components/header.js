@@ -45,7 +45,7 @@ const menu = {
     },
   },
   closed: {
-    clipPath: "circle(30px at calc(100vw - 40px) 30px)",
+    clipPath: "circle(23px at calc(100vw - 39px) 29px)",
     transition: {
       delay: 0.5,
       type: "spring",

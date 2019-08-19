@@ -27,3 +27,11 @@
     text-decoration: none;
   }
 }
+.mobile-menu--li--open {
+  pointer-events: all;
+  cursor: pointer;
+}
+.mobile-menu--li--closed {
+  pointer-events: none;
+  cursor: default;
+}
