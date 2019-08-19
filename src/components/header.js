@@ -70,14 +70,25 @@ const MobileHeader = styled.header`
   grid-template-columns: 100px 1fr;
   align-items: center;
 `
+
+const Title = styled.h1`
+  margin: 0;
+  padding-left: 20px;
+  font-size: var(--font-size-2);
+  font-weight: 300;
+
+  a {
+    text-decoration: none;
+    color: var(--lightaccent);
+  }
+`
+
 const Header = ({ siteTitle }) => (
   <MobileHeader>
     <div>
-      <h1>
-        <Link>
-          {siteTitle}
-        </Link>
-      </h1>
+      <Title>
+        <Link to="/">{siteTitle}</Link>
+      </Title>
     </div>
     <Hamburger>
       <span />
