@@ -62,8 +62,16 @@ const Hamburger = styled.div`
       }
     `}
 `
+
+const MobileHeader = styled.header`
+  background: var(--darkshade);
+  height: 60px;
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  align-items: center;
+`
 const Header = ({ siteTitle }) => (
-  <header>
+  <MobileHeader>
     <div>
       <h1>
         <Link>
@@ -77,6 +85,7 @@ const Header = ({ siteTitle }) => (
       <span />
       <span />
     </Hamburger>
+  </MobileHeader>
 )
 
 Header.propTypes = {
