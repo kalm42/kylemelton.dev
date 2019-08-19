@@ -1,9 +1,49 @@
 @import url("https://rsms.me/inter/inter.css");
-html {
-  font-family: "Inter", sans-serif;
-}
 @supports (font-variation-settings: normal) {
   html {
     font-family: "Inter var", sans-serif;
   }
+}
+// Base styles
+html {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  color: var(--darkshade);
+}
+p {
+  line-height: var(--line-height-1);
+}
+h1 {
+  line-height: var(--line-height-6);
+  font-size: var(--font-size-6);
+}
+h2 {
+  line-height: var(--line-height-5);
+  font-size: var(--font-size-5);
+}
+h3 {
+  line-height: var(--line-height-4);
+  font-size: var(--font-size-4);
+}
+h4 {
+  line-height: var(--line-height-3);
+  font-size: var(--font-size-3);
+}
+h5 {
+  line-height: var(--line-height-2);
+  font-size: var(--font-size-2);
+}
+h6 {
+  line-height: var(--line-height-1);
+  font-size: var(--font-size-1);
+}
+pre {
+  overflow: scroll;
+  background: var(--darkaccent);
+  padding: 1rem;
+  border-radius: var(--borderradius);
+  color: var(--darkshade);
+}
+a {
+  color: var(--darkaccent);
 }
