@@ -9,9 +9,10 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Fullstack JavaScript Developer" />
     <Hero />
-    <div>
+    <div className="hero--text">
       <p>
-        Hi! I&apos;m Kyle. <span>A Full Stack Developer.</span>
+        Hi! I&apos;m Kyle. <br />
+        <span>A Full Stack Developer.</span>
       </p>
     </div>
 

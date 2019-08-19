@@ -109,3 +109,21 @@
     height: calc(100vh);
   }
 }
+.hero--text {
+  position: absolute;
+  top: calc(50vh);
+  left: calc(12.5vw);
+  width: calc(75vw);
+  color: var(--lightshade);
+
+  p {
+    text-align: center;
+    font-size: var(--font-size-3);
+    line-height: var(--line-height-5);
+    font-weight: 300;
+
+    span {
+      font-weight: 700;
+    }
+  }
+}
