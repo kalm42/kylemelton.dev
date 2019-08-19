@@ -2,7 +2,7 @@
   "name": "kalm42-kylemelton.dev",
   "private": true,
   "description": "My resume website.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": "Kyle Melton <kalm42@gmail.com>",
   "dependencies": {
     "framer-motion": "^1.6.1",
