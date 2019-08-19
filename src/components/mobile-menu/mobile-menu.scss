@@ -1,0 +1,29 @@
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: calc(100vw);
+  background: var(--darkshade);
+  z-index: 1;
+}
+
+.mobile-menu--ul {
+  z-index: 1;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  bottom: 0;
+  right: 40px;
+  list-style: none;
+}
+
+.mobile-menu--item {
+  padding: 20px;
+  display: grid;
+  justify-items: center;
+  a {
+    color: var(--primary);
+    text-decoration: none;
+  }
+}

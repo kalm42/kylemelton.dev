@@ -2,13 +2,13 @@
 @import "./typography.scss";
 
 :root {
-  --lightshade: #FFFFFF; /* Use this color as the background for your dark-on-light designs, or the
+  --lightshade: #ffffff; /* Use this color as the background for your dark-on-light designs, or the
   text color of an inverted design. */
-  --lightaccent: #A0A603; /* Accent colors can be used to bring attention to design elements by
+  --lightaccent: #a0a603; /* Accent colors can be used to bring attention to design elements by
   contrasting with the rest of the palette. */
-  --primary: #C0D904; /* This color should be eye-catching but not harsh. It can be liberally 
+  --primary: #c0d904; /* This color should be eye-catching but not harsh. It can be liberally 
     applied to your layout as its main identity. */
-  --darkaccent: #021E73; /* Another accent color to consider. Not all colors have to be used -
+  --darkaccent: #021e73; /* Another accent color to consider. Not all colors have to be used -
     sometimes a simple color scheme works best. */
   --darkshade: #010626; /* Use as the text color for dark-on-light designs, or as the background 
     for inverted designs. */
@@ -16,14 +16,10 @@
   --success: #67ad59;
   --warning: #e49d21;
   --danger: #f44336;
-  --deepboxshadow:
-    0 16px 38px -12px rgba(0, 0, 0, 0.56), 
-    0 4px 25px 0px rgba(0, 0, 0, 0.12), 
-    0 8px 10px -5px rgba(0, 0, 0, 0.2);
-  --shallowboxshadow:
-    0 2px 2px 0 rgba(0, 0, 0, 0.14), 
-    0 3px 1px -2px rgba(0, 0, 0, 0.2), 
-    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  --deepboxshadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56),
+    0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  --shallowboxshadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   --maxwidth: 1000px;
   --borderradius: 5px;
 
@@ -98,5 +94,11 @@
     --line-height-4: 3.157rem;
     --line-height-5: 4.209rem;
     --line-height-6: 5.598rem;
+  }
+}
+.mobile-header {
+  display: grid;
+  @include min-tablet() {
+    display: none;
   }
 }

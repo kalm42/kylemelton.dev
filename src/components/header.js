@@ -1,74 +1,21 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
+import { motion } from "framer-motion"
 
-const Hamburger = styled.div`
-  width: 16px;
-  height: 12px;
-  position: relative;
-  margin: 16px;
-  transform: rotate(0deg);
-  transition: 0.5s ease-in-out;
-  cursor: pointer;
-
-  span {
-    display: block;
-    position: absolute;
-    height: 2px;
-    width: 100%;
-    background: var(--lightaccent);
-    opacity: 1;
-    right: 0;
-    border-radius: 1px;
-    transform: rotate(0deg);
-    transition: 0.25s ease-in-out;
-
-    &:nth-child(1) {
-      top: 0px;
-    }
-    &:nth-child(2) {
-      top: 5px;
-    }
-    &:nth-child(3) {
-      top: 5px;
-    }
-    &:nth-child(4) {
-      top: 10px;
-      width: 40%;
-    }
-  }
-
-  ${props =>
-    props.open &&
-    `
-      span {
-        &:nth-child(1) {
-          top: 10px;
-          width: 0%;
-          left: 50%;
-        }
-        &:nth-child(2) {
-          transform: rotate(45deg);
-        }
-        &:nth-child(3) {
-          transform: rotate(-45deg);
-        }
-        &:nth-child(4) {
-          top: 10px;
-          width: 0%;
-          left: 50%;
-        }
-      }
-    `}
-`
+import Hamburger from "./mobile-menu/Hamburger"
+import Navigation from "./mobile-menu/Navigation"
+import MobileNavigation from "./mobile-menu/MobileNavigation"
+import { MenuContext, MenuProvider } from "./mobile-menu/MenuContext"
+import "./mobile-menu/mobile-menu.scss"
 
 const MobileHeader = styled.header`
   background: var(--darkshade);
   height: 60px;
-  display: grid;
-  grid-template-columns: 100px 1fr;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
+  z-index: 2;
 `
 
 const Title = styled.h1`
@@ -79,25 +26,51 @@ const Title = styled.h1`
 
   a {
     text-decoration: none;
-    color: var(--lightaccent);
+    color: var(--primary);
   }
 `
 
-const Header = ({ siteTitle }) => (
-  <MobileHeader>
-    <div>
-      <Title>
-        <Link to="/">{siteTitle}</Link>
-      </Title>
-    </div>
-    <Hamburger>
-      <span />
-      <span />
-      <span />
-      <span />
-    </Hamburger>
-  </MobileHeader>
-)
+const HamburgerButton = () => {
+  const ctx = useContext(MenuContext)
+  return <Hamburger ctx={ctx} open={ctx.isMenuOpen ? "open" : "closed"} />
+}
+
+const menu = {
+  open: {
+    clipPath: `circle(calc(110vh) at calc(100vw - 50px) 30px)`,
+    transition: {
+      type: "spring",
+      stiffness: 20,
+      restDelta: 2,
+    },
+  },
+  closed: {
+    clipPath: "circle(30px at calc(100vw - 40px) 30px)",
+    transition: {
+      delay: 0.5,
+      type: "spring",
+      stiffness: 400,
+      damping: 40,
+    },
+  },
+}
+
+const Header = ({ siteTitle }) => {
+  return (
+    <MenuProvider>
+      <MobileHeader className="mobile-header">
+        <Title>
+          <Link to="/">{siteTitle}</Link>
+        </Title>
+        <MobileNavigation>
+          <motion.div className="mobile-menu" variants={menu} />
+          <Navigation />
+          <HamburgerButton />
+        </MobileNavigation>
+      </MobileHeader>
+    </MenuProvider>
+  )
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
