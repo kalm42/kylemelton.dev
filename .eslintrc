@@ -1,0 +1,12 @@
+{
+  "extends": ["airbnb", "eslint-config-prettier"],
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "parser": "babel-eslint",
+  "plugins": ["cypress"],
+  "env": { "cypress/globals": true },
+  "rules": {
+    "react/jsx-filename-extension": "off"
+  }
+}
