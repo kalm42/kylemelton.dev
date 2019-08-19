@@ -102,3 +102,10 @@
     display: none;
   }
 }
+.hero {
+  height: calc(100vh - 60px);
+
+  @include min-tablet() {
+    height: calc(100vh);
+  }
+}

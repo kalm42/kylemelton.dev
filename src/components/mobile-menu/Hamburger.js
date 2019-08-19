@@ -72,7 +72,7 @@ const Hamburger = props => {
         />
         <Path
           variants={{
-            closed: { d: "M 2 20 L 20 20" },
+            closed: { d: "M 10 20 L 20 20" },
             open: { d: "M 3 2.5 L 20 20" },
           }}
         />
