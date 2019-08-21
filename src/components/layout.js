@@ -21,9 +21,20 @@ const Layout = ({ children }) => {
       <Header siteTitle={data.site.siteMetadata.title} />
       <main>{children}</main>
       <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
+        <h1>Contact Details</h1>
+        <p>© {new Date().getFullYear()}</p>
+        <p>(951)212-7174</p>
+        <p>me@kylemelton.dev</p>
+        <p>KyleMelton.dev</p>
+        <address>
+          2184 Channing Way #418
+          <br />
+          Idaho Falls, ID 83404
+        </address>
+        <div>{/* Social Media: GitHub */}</div>
+        <div>{/* Social Media: Facebook */}</div>
+        <div>{/* Social Media: LinkedIn */}</div>
+        <div>{/* Social Media: Twitter */}</div>
       </footer>
     </>
   )
