@@ -1,6 +1,8 @@
-import React, { useState, useRef, useEffect } from "react"
+import React, { useState, useEffect } from "react"
+import PropTypes from "prop-types"
 import styled from "styled-components"
 import { motion } from "framer-motion"
+import { useIntersect } from "../../hooks/useIntersect"
 
 const Nav = styled.nav`
   width: 150px;
@@ -19,47 +21,65 @@ const Nav = styled.nav`
 
   li {
     font-size: var(--font-size-1);
+    width: 100%;
+    display: grid;
+    justify-items: center;
+  }
+
+  li.activeItem {
+    background: var(--primary);
+
+    a {
+      color: var(--darkaccent);
+
+      &:hover {
+        color: var(--darkshade);
+      }
+    }
   }
 
   a {
     padding: 40px 0;
-    color: var(--lightshade);
+    color: var(--primary);
     text-decoration: none;
     display: block;
+    font-weight: 900;
 
     &:hover {
-      color: var(--primary);
+      color: var(--lightaccent);
     }
   }
 `
 
-const Menu = ({active}) => {
+const Menu = ({ threshold, scrollPosition }) => {
+  // Handle a fixing and unfixing menu
   const [isMenuFixed, setIsMenuFixed] = useState(false)
-  const menu = useRef(null)
+  const [activeItem, setActiveItem] = useState("aboutme")
 
-  const watch = entries => {
-    const { bottom } = entries[0].boundingClientRect
+  const [ref, entry] = useIntersect({ threshold })
+
+  useEffect(() => {
+    if (!entry.target) return
+
+    const { bottom } = entry.boundingClientRect
     if (!isMenuFixed && bottom <= 40) {
       setIsMenuFixed(true)
     }
     if (isMenuFixed && bottom >= 40) {
       setIsMenuFixed(false)
     }
-  }
+  }, [entry])
 
-  const observer = new IntersectionObserver(watch, {
-    threshold: new Array(101)
-      .fill(0)
-      .map((v, i) => Number((i * 0.01).toFixed(2))),
-  })
+  // Hanlde which menu item is active
+  const sorted = scrollPosition.sort((a, b) => (a.ratio > b.ratio ? -1 : 1))
 
   useEffect(() => {
-    observer.observe(menu.current)
-  })
+    setActiveItem(sorted[0].id)
+  }, [sorted[0].id])
 
   return (
     <>
-      <div className="menu-indicator" ref={menu}>
+      <div className="menu-indicator" ref={ref}>
         <motion.div
           animate={{ y: 10 }}
           transition={{ flip: Infinity, duration: 0.5, ease: "easeInOut" }}
@@ -72,25 +92,54 @@ const Menu = ({active}) => {
       </div>
       <Nav fixed={isMenuFixed}>
         <ul>
-          <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+          <motion.li
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className={activeItem === "aboutme" ? "activeItem" : "inactive"}
+          >
             <a href="#aboutme">About Me</a>
           </motion.li>
-          <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+          <motion.li
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className={activeItem === "contactme" ? "activeItem" : "inactive"}
+          >
             <a href="#contactme">Contact Me</a>
           </motion.li>
-          <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+          <motion.li
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className={activeItem === "resume" ? "activeItem" : "inactive"}
+          >
             <a href="#resume">Resume</a>
           </motion.li>
-          <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+          <motion.li
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className={activeItem === "skills" ? "activeItem" : "inactive"}
+          >
             <a href="#skills">Skills</a>
           </motion.li>
-          <motion.li whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+          <motion.li
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className={activeItem === "projects" ? "activeItem" : "inactive"}
+          >
             <a href="#projects">Projects</a>
           </motion.li>
         </ul>
       </Nav>
     </>
   )
+}
+
+Menu.propTypes = {
+  scrollPosition: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      ratio: PropTypes.number,
+    })
+  ).isRequired,
 }
 
 export default Menu
