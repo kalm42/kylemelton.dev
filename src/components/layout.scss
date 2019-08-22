@@ -1,5 +1,6 @@
 @import "./normalize.scss";
 @import "./typography.scss";
+@import "./mixins.scss";
 
 :root {
   --lightshade: #ffffff; /* Use this color as the background for your dark-on-light designs, or the
@@ -38,46 +39,7 @@
   --line-height-5: 2.488rem;
   --line-height-6: 2.986rem;
 }
-@mixin max-tablet {
-  @media screen and (max-width: 768px) {
-    @content;
-  }
-}
-@mixin min-tablet {
-  @media screen and (min-width: 768px) {
-    @content;
-  }
-}
-@mixin phone-landscape-to-tablet {
-  @media screen and (min-width: 550px) and (max-width: 767px) {
-    @content;
-  }
-}
-@mixin tablet-to-desktop {
-  @media screen and (min-width: 768px) and (max-width: 1279px) {
-    @content;
-  }
-}
-@mixin min-desktop {
-  @media screen and (min-width: 1280px) {
-    @content;
-  }
-}
-@mixin max-desktop {
-  @media screen and (max-width: 1279px) {
-    @content;
-  }
-}
-@mixin desktop-to-hd {
-  @media screen and (min-width: 1280px) and (max-width: 2999px) {
-    @content;
-  }
-}
-@mixin min-hd {
-  @media screen and (min-width: 3000px) {
-    @content;
-  }
-}
+
 @include min-tablet() {
   :root {
     /* scale for 1.33 */
@@ -102,6 +64,7 @@
     display: none;
   }
 }
+
 .hero {
   height: calc(100vh - 60px);
 
@@ -175,4 +138,8 @@
 
 .menu--fixed {
   position: fixed !important;
+}
+
+html {
+  scroll-behavior: smooth;
 }
