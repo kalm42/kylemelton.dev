@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 import { motion } from "framer-motion"
 import { useIntersect } from "../../hooks/useIntersect"
+import MenuItem from "./MenuItem"
 
 const Nav = styled.nav`
   width: 150px;
@@ -26,7 +27,7 @@ const Nav = styled.nav`
     justify-items: center;
   }
 
-  li.activeItem {
+  li.active {
     background: var(--primary);
 
     a {
@@ -51,10 +52,9 @@ const Nav = styled.nav`
   }
 `
 
-const Menu = ({ threshold, scrollPosition }) => {
+const Menu = ({ threshold, activeSection }) => {
   // Handle a fixing and unfixing menu
   const [isMenuFixed, setIsMenuFixed] = useState(false)
-  const [activeItem, setActiveItem] = useState("aboutme")
 
   const [ref, entry] = useIntersect({ threshold })
 
@@ -70,12 +70,13 @@ const Menu = ({ threshold, scrollPosition }) => {
     }
   }, [entry])
 
-  // Hanlde which menu item is active
-  const sorted = scrollPosition.sort((a, b) => (a.ratio > b.ratio ? -1 : 1))
-
-  useEffect(() => {
-    setActiveItem(sorted[0].id)
-  }, [sorted[0].id])
+  const MenuItems = [
+    { id: "aboutme", text: "About Me", activeSection },
+    { id: "contactme", text: "Contact Me", activeSection },
+    { id: "resume", text: "Resume", activeSection },
+    { id: "skills", text: "Skills", activeSection },
+    { id: "projects", text: "Projects", activeSection },
+  ]
 
   return (
     <>
@@ -92,41 +93,9 @@ const Menu = ({ threshold, scrollPosition }) => {
       </div>
       <Nav fixed={isMenuFixed}>
         <ul>
-          <motion.li
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            className={activeItem === "aboutme" ? "activeItem" : "inactive"}
-          >
-            <a href="#aboutme">About Me</a>
-          </motion.li>
-          <motion.li
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            className={activeItem === "contactme" ? "activeItem" : "inactive"}
-          >
-            <a href="#contactme">Contact Me</a>
-          </motion.li>
-          <motion.li
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            className={activeItem === "resume" ? "activeItem" : "inactive"}
-          >
-            <a href="#resume">Resume</a>
-          </motion.li>
-          <motion.li
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            className={activeItem === "skills" ? "activeItem" : "inactive"}
-          >
-            <a href="#skills">Skills</a>
-          </motion.li>
-          <motion.li
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            className={activeItem === "projects" ? "activeItem" : "inactive"}
-          >
-            <a href="#projects">Projects</a>
-          </motion.li>
+          {MenuItems.map(item => (
+            <MenuItem data={item} />
+          ))}
         </ul>
       </Nav>
     </>
@@ -134,12 +103,8 @@ const Menu = ({ threshold, scrollPosition }) => {
 }
 
 Menu.propTypes = {
-  scrollPosition: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      ratio: PropTypes.number,
-    })
-  ).isRequired,
+  threshold: PropTypes.arrayOf(PropTypes.number).isRequired,
+  activeSection: PropTypes.string.isRequired,
 }
 
 export default Menu
