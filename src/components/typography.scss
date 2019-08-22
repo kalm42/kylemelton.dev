@@ -18,6 +18,8 @@ p {
 h1 {
   line-height: var(--line-height-6);
   font-size: var(--font-size-6);
+  color: var(--darkaccent);
+  font-weight: 500;
 }
 h2 {
   line-height: var(--line-height-5);
@@ -48,4 +50,13 @@ pre {
 }
 a {
   color: var(--darkaccent);
+}
+
+p {
+  text-align: center;
+  font-weight: 300;
+
+  @include min-tablet() {
+    text-align: left;
+  }
 }

@@ -1,0 +1,38 @@
+@import "../mixins.scss";
+
+#aboutme {
+  margin: 0 auto;
+  width: calc(85vw);
+
+  @include tablet-to-desktop() {
+    width: calc(60vw);
+    margin: 0 calc(7vw);
+  }
+
+  @include min-desktop() {
+    width: calc(60vw);
+    margin: 0 auto;
+
+    h1 {
+      text-align: center;
+    }
+  }
+}
+
+.aboutme__container {
+  display: grid;
+  justify-items: center;
+
+  @include min-desktop() {
+    display: grid;
+    grid-template-columns: 1fr 210px 1fr;
+    grid-gap: 20px;
+  }
+}
+
+.aboutme__image {
+  border-radius: 50%;
+  border: var(--darkaccent) 10px solid;
+  width: 190px;
+  box-shadow: var(--shallowboxshadow);
+}
