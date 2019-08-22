@@ -1,0 +1,8 @@
+@import "../mixins.scss";
+
+.menu__nav {
+  display: none;
+  @include min-tablet() {
+    display: block;
+  }
+}
