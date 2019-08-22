@@ -1,3 +1,23 @@
+.mobile-menu__header {
+  background: var(--darkshade);
+  height: 60px;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  z-index: 2;
+
+  h1 {
+    margin: 0;
+    padding-left: 20px;
+    font-size: var(--font-size-2);
+    font-weight: 300;
+
+    a {
+      text-decoration: none;
+      color: var(--primary);
+    }
+  }
+}
+
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -34,4 +54,7 @@
 .mobile-menu--li--closed {
   pointer-events: none;
   cursor: default;
+}
+.mobile-menu__nav {
+  height: 60px;
 }

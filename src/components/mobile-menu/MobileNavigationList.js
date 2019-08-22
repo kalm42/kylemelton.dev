@@ -20,7 +20,7 @@ const MenuItems = [
   { url: "#projects", title: "Projects" },
 ]
 
-const Navigation = () => (
+const MobileNavigationList = () => (
   <motion.ul variants={variants} className="mobile-menu--ul">
     {MenuItems.map((item, i) => (
       <MenuItem item={item} key={i} />
@@ -28,6 +28,6 @@ const Navigation = () => (
   </motion.ul>
 )
 
-Navigation.propTypes = {}
+MobileNavigationList.propTypes = {}
 
-export default Navigation
+export default MobileNavigationList
