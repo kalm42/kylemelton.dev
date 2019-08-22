@@ -1,19 +1,31 @@
-import React from "react"
+import React, { useEffect } from "react"
 import PropTypes from "prop-types"
-import { useIntersect } from "../hooks/useIntersect"
+import { useIntersect } from "../../hooks/useIntersect"
 
-const { format } = new Intl.NumberFormat("en-US", { maximumFractionDigits: 2 })
-
-const Resume = ({ threshold, updatePosition }) => {
+const Resume = ({
+  data: { threshold, activeSection, pageHeight },
+  setActiveSection,
+}) => {
+  if (!pageHeight) return null
+  const observerMargin = Math.floor(pageHeight / 2)
+  const rootMargin = `-${
+    pageHeight % 2 === 0 ? observerMargin - 1 : observerMargin
+  }px 0px -${observerMargin}px 0px`
   const [ref, entry] = useIntersect({
     threshold,
+    rootMargin,
   })
 
-  updatePosition("resume", entry.intersectionRatio)
+  useEffect(() => {
+    if (!entry.target) return
+    if (entry.intersectionRatio > 0) {
+      setActiveSection(entry.target.id)
+    }
+  }, [entry, activeSection, setActiveSection, ref])
 
   return (
     <div id="resume" ref={ref}>
-      <h1>Resume - {format(entry.intersectionRatio)}</h1>
+      <h1>Resume</h1>
       <h2>Work Experience</h2>
       <h3>Kimmel &amp; Associates</h3>
       <p>February 2019 – June 2019</p>
@@ -47,8 +59,12 @@ const Resume = ({ threshold, updatePosition }) => {
 }
 
 Resume.propTypes = {
-  threshold: PropTypes.arrayOf(PropTypes.number).isRequired,
-  updatePosition: PropTypes.func.isRequired,
+  data: PropTypes.shape({
+    threshold: PropTypes.arrayOf(PropTypes.number),
+    activeSection: PropTypes.string,
+    pageHeight: PropTypes.number,
+  }).isRequired,
+  setActiveSection: PropTypes.func.isRequired,
 }
 
 export default Resume
