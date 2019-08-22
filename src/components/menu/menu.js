@@ -5,6 +5,8 @@ import { motion } from "framer-motion"
 import { useIntersect } from "../../hooks/useIntersect"
 import MenuItem from "./MenuItem"
 
+import "./menu.scss"
+
 const Nav = styled.nav`
   width: 150px;
   position: ${props => (props.fixed ? "fixed" : "absolute")};
@@ -53,9 +55,7 @@ const Nav = styled.nav`
 `
 
 const Menu = ({ threshold, activeSection }) => {
-  // Handle a fixing and unfixing menu
   const [isMenuFixed, setIsMenuFixed] = useState(false)
-
   const [ref, entry] = useIntersect({ threshold })
 
   useEffect(() => {
@@ -91,13 +91,15 @@ const Menu = ({ threshold, activeSection }) => {
           </svg>
         </motion.div>
       </div>
-      <Nav fixed={isMenuFixed}>
-        <ul>
-          {MenuItems.map(item => (
-            <MenuItem data={item} />
-          ))}
-        </ul>
-      </Nav>
+      <div className="menu__nav">
+        <Nav fixed={isMenuFixed}>
+          <ul>
+            {MenuItems.map(item => (
+              <MenuItem data={item} />
+            ))}
+          </ul>
+        </Nav>
+      </div>
     </>
   )
 }

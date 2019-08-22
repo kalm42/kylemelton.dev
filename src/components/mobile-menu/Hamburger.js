@@ -1,7 +1,9 @@
-import React from "react"
+import React, { useContext } from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import { motion } from "framer-motion"
+
+import Path from "./Path"
+import { MenuContext } from "./MenuContext"
 
 const Button = styled.button`
   background: none;
@@ -12,38 +14,9 @@ const Button = styled.button`
   z-index: 2;
 `
 
-const Path = ({ variants, d, transition }) => (
-  <motion.path
-    fill="transparent"
-    strokeWidth="3"
-    stroke="var(--primary)"
-    strokeLinecap="round"
-    variants={variants}
-    transition={transition}
-    d={d}
-  />
-)
-
-Path.propTypes = {
-  variants: PropTypes.shape({
-    open: PropTypes.shape({
-      d: PropTypes.string,
-      opacity: PropTypes.number,
-    }),
-    closed: PropTypes.shape({
-      d: PropTypes.string,
-      opacity: PropTypes.number,
-    }),
-  }).isRequired,
-  d: PropTypes.string,
-  transition: PropTypes.shape({
-    duration: PropTypes.number,
-  }),
-}
-
-Path.defaultProps = {
-  d: "",
-  transition: { duration: 0.3 },
+const HamburgerButton = () => {
+  const ctx = useContext(MenuContext)
+  return <Hamburger ctx={ctx} open={ctx.isMenuOpen ? "open" : "closed"} />
 }
 
 const Hamburger = props => {
@@ -88,4 +61,4 @@ Hamburger.propTypes = {
   }).isRequired,
 }
 
-export default Hamburger
+export default HamburgerButton

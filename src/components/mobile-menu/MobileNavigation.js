@@ -11,7 +11,7 @@ const MobileNavigation = ({ children }) => {
       initial={false}
       animate={ctx.isMenuOpen ? "open" : "closed"}
       ref={containerRef}
-      style={{ height: "60px" }}
+      className="mobile-menu__nav"
     >
       {children}
     </motion.nav>

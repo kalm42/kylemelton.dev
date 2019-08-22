@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./header"
+import MobileMenu from "./mobile-menu/MobileMenu"
 import "./layout.scss"
 
 const Layout = ({ children }) => {
@@ -18,7 +18,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <MobileMenu siteTitle={data.site.siteMetadata.title} />
       <main>{children}</main>
       <footer>
         <h1>Contact Details</h1>
