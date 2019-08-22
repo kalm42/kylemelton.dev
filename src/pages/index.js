@@ -1,36 +1,34 @@
-import React, { useMemo } from "react"
+import React, { useState, useEffect } from "react"
 
 import Layout from "../components/layout"
 import Hero from "../components/hero"
 import SEO from "../components/seo"
 import Menu from "../components/menu/menu"
-import AboutMe from "../components/AboutMe"
-import ContactMe from "../components/ContactMe"
-import Resume from "../components/Resume"
-import Skills from "../components/Skills"
-import Projects from "../components/Projects"
+import AboutMe from "../components/sections/AboutMe"
+import ContactMe from "../components/sections/ContactMe"
+import Resume from "../components/sections/Resume"
+import Skills from "../components/sections/Skills"
+import Projects from "../components/sections/Projects"
 
 const IndexPage = () => {
+  const [pageHeight, setPageHeight] = useState()
+  const [activeSection, setActiveSection] = useState("")
+
   const threshold = new Array(101)
     .fill(0)
     .map((v, i) => Number((i * 0.01).toFixed(2)))
 
-  const scrollPosition = [
-    { ratio: 0, id: "aboutme" },
-    { ratio: 0, id: "contactme" },
-    { ratio: 0, id: "resume" },
-    { ratio: 0, id: "skills" },
-    { ratio: 0, id: "projects" },
-  ]
+  useEffect(() => {
+    setPageHeight(window.innerHeight)
+    const updatePageHeight = () => {
+      setTimeout(() => {
+        setPageHeight(window.innerHeight)
+      }, 300)
+    }
+    window.addEventListener("resize", updatePageHeight)
 
-  const updateScrollPosition = (id, ratio) => {
-    scrollPosition.map(e => {
-      if (e.id === id) {
-        e.ratio = ratio
-      }
-      return e
-    })
-  }
+    return () => window.removeEventListener("resize", updatePageHeight)
+  }, [])
 
   return (
     <Layout>
@@ -43,15 +41,27 @@ const IndexPage = () => {
         </p>
       </div>
       <div>
-        <Menu threshold={threshold} scrollPosition={scrollPosition} />
-        <AboutMe threshold={threshold} updatePosition={updateScrollPosition} />
-        <ContactMe
-          threshold={threshold}
-          updatePosition={updateScrollPosition}
+        <Menu threshold={threshold} activeSection={activeSection} />
+        <AboutMe
+          setActiveSection={setActiveSection}
+          data={{ pageHeight, activeSection, threshold }}
         />
-        <Resume threshold={threshold} updatePosition={updateScrollPosition} />
-        <Skills threshold={threshold} updatePosition={updateScrollPosition} />
-        <Projects threshold={threshold} updatePosition={updateScrollPosition} />
+        <ContactMe
+          setActiveSection={setActiveSection}
+          data={{ pageHeight, activeSection, threshold }}
+        />
+        <Resume
+          setActiveSection={setActiveSection}
+          data={{ pageHeight, activeSection, threshold }}
+        />
+        <Skills
+          setActiveSection={setActiveSection}
+          data={{ pageHeight, activeSection, threshold }}
+        />
+        <Projects
+          setActiveSection={setActiveSection}
+          data={{ pageHeight, activeSection, threshold }}
+        />
       </div>
     </Layout>
   )
