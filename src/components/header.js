@@ -37,7 +37,7 @@ const HamburgerButton = () => {
 
 const menu = {
   open: {
-    clipPath: `circle(calc(110vh) at calc(100vw - 50px) 30px)`,
+    clipPath: `circle(calc(130vw) at calc(100vw - 50px) 30px)`,
     transition: {
       type: "spring",
       stiffness: 20,
