@@ -127,3 +127,52 @@
     }
   }
 }
+.menu-indicator {
+  background: var(--darkaccent);
+  width: 150px;
+  height: 130px;
+  position: absolute;
+  right: 60px;
+  bottom: 0;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+
+  svg {
+    width: 46px;
+    height: 46px;
+    path {
+      fill: var(--primary);
+    }
+  }
+}
+.menu {
+  width: 150px;
+  position: absolute;
+  right: 60px;
+  top: calc(100vh);
+  background: var(--darkaccent);
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    justify-items: center;
+  }
+
+  li {
+    padding: 40px 0;
+    font-size: var(--font-size-1);
+  }
+
+  a {
+    color: var(--lightshade);
+    text-decoration: none;
+  }
+}
+
+.menu--fixed {
+  position: fixed !important;
+}
