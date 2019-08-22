@@ -13,8 +13,8 @@ const variants = {
 }
 
 const MenuItems = [
-  { url: "#about-me", title: "About Me" },
-  { url: "#contact-me", title: "Contact Me" },
+  { url: "#aboutme", title: "About Me" },
+  { url: "#contactme", title: "Contact Me" },
   { url: "#resume", title: "Resume" },
   { url: "#skills", title: "Skills" },
   { url: "#projects", title: "Projects" },
