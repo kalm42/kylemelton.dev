@@ -1,0 +1,46 @@
+@import "../mixins.scss";
+
+.resume {
+  margin: 0 auto;
+  width: calc(85vw);
+
+  @include tablet-to-desktop() {
+    width: calc(60vw);
+    margin: 0 calc(7vw);
+  }
+  @include min-desktop() {
+    width: calc(60vw);
+    margin: 0 auto;
+  }
+}
+.resume__work {
+  @include min-desktop() {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 2fr 3fr;
+    grid-template-areas: "employer description" "date description";
+  }
+  h3 {
+    grid-area: employer;
+  }
+  p {
+    text-align: left;
+    grid-area: date;
+  }
+}
+.resume__job {
+  margin-left: 20px;
+  grid-area: description;
+}
+.resume__college {
+  p {
+    text-align: left;
+    margin-left: 20px;
+  }
+}
+.resume__certification {
+  p {
+    text-align: left;
+    margin-left: 20px;
+  }
+}
