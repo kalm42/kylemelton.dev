@@ -1,7 +1,8 @@
 /* eslint-disable react/no-array-index-key */
-import React from "react"
+import React, { useContext } from "react"
 import { motion } from "framer-motion"
 import MenuItem from "./MenuItem"
+import { MenuContext } from "./MenuContext"
 
 const variants = {
   open: {
@@ -20,13 +21,21 @@ const MenuItems = [
   { url: "#projects", title: "Projects" },
 ]
 
-const MobileNavigationList = () => (
-  <motion.ul variants={variants} className="mobile-menu--ul">
-    {MenuItems.map((item, i) => (
-      <MenuItem item={item} key={i} />
-    ))}
-  </motion.ul>
-)
+const MobileNavigationList = () => {
+  const ctx = useContext(MenuContext)
+  return (
+    <motion.ul
+      variants={variants}
+      className={
+        ctx.isMenuOpen ? "mobile-menu__ul--open" : "mobile-menu__ul--close"
+      }
+    >
+      {MenuItems.map((item, i) => (
+        <MenuItem item={item} key={i} />
+      ))}
+    </motion.ul>
+  )
+}
 
 MobileNavigationList.propTypes = {}
 

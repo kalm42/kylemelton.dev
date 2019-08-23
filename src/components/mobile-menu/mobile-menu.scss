@@ -44,6 +44,24 @@
   right: 40px;
   list-style: none;
 }
+.mobile-menu__ul--open {
+  z-index: 2;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  bottom: 0;
+  right: 40px;
+  list-style: none;
+}
+.mobile-menu__ul--close {
+  z-index: -1;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  bottom: 0;
+  right: 40px;
+  list-style: none;
+}
 
 .mobile-menu--item {
   padding: 20px;
