@@ -2,6 +2,12 @@ import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 import { useIntersect } from "../../hooks/useIntersect"
 
+import "./ContactMe.scss"
+import Twitter from "../social/Twitter"
+import GitHub from "../social/Github"
+import LinkedIn from "../social/Linkedin"
+import Facebook from "../social/Facebook"
+
 const ContactMe = ({
   data: { threshold, activeSection, pageHeight },
   setActiveSection,
@@ -24,15 +30,27 @@ const ContactMe = ({
 
   return (
     <div id="contactme" ref={ref}>
-      <h1>Contact Details</h1>
-      <p>(951)212-7174</p>
-      <p>me@kylemelton.dev</p>
-      <p>KyleMelton.dev</p>
-      <address>
-        2184 Channing Way #418
-        <br />
-        Idaho Falls, ID 83404
-      </address>
+      <div className="contact-me">
+        <h1>Contact Details</h1>
+        <div className="contact-me__info">
+          <div>
+            <p>(951)212-7174</p>
+            <p>me@kylemelton.dev</p>
+            <p>KyleMelton.dev</p>
+          </div>
+          <address>
+            2184 Channing Way #418
+            <br />
+            Idaho Falls, ID 83404
+          </address>
+        </div>
+        <div className="contact-me__social">
+          <LinkedIn />
+          <GitHub />
+          <Twitter />
+          <Facebook />
+        </div>
+      </div>
     </div>
   )
 }

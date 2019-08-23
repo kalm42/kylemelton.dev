@@ -29,7 +29,7 @@ const MenuItem = ({ item }) => {
     <motion.li
       variants={variants}
       whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.95 }}
+      whileTap={{ scale: 0.9 }}
       className={
         ctx.isMenuOpen ? "mobile-menu--li--open" : "mobile-menu--li--closed"
       }
