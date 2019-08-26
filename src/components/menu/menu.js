@@ -14,6 +14,7 @@ const Nav = styled.nav`
   right: 60px;
   top: ${props => (props.fixed ? "40px" : "calc(100vh)")};
   background: var(--darkaccent);
+  box-shadow: var(--deepboxshadow);
 
   ul {
     list-style: none;
