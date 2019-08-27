@@ -2,7 +2,7 @@
   "name": "kalm42-kylemelton.dev",
   "private": true,
   "description": "My resume website.",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "author": "Kyle Melton <kalm42@gmail.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.6",
