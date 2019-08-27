@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 const BrandedBrushes = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "youssef-sarhan-tze1kKj7Lgg-unsplash.jpg" }) {
+      placeholderImage: file(relativePath: { eq: "branded.png" }) {
         childImageSharp {
           fluid(maxWidth: 1000) {
             ...GatsbyImageSharpFluid
