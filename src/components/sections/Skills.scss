@@ -1,0 +1,48 @@
+@import "../mixins.scss";
+
+#skills {
+  background: var(--darkaccent);
+  padding: calc(2vw) 0;
+}
+.skills {
+  margin: 0 auto;
+  width: calc(85vw);
+  color:var(--lightshade);
+
+  h1 {
+    color:var(--lightshade);
+    @include min-desktop() {
+      text-align: center;
+    }
+  }
+
+  @include tablet-to-desktop() {
+    width: calc(60vw);
+    margin: 0 calc(7vw);
+  }
+  @include min-desktop() {
+    width: calc(60vw);
+    margin: 0 auto;
+  }
+}
+.skill__set {
+  ul {
+    list-style: none;
+    padding: 0;
+
+    @include min-desktop() {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 20px;
+    }
+    li {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 5px 0;
+    }
+  }
+}
+.skill_rank {
+  display: block;
+  justify-self: right;
+}
