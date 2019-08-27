@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 const RickAndMorty = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "youssef-sarhan-tze1kKj7Lgg-unsplash.jpg" }) {
+      placeholderImage: file(relativePath: { eq: "rickandmorty.png" }) {
         childImageSharp {
           fluid(maxWidth: 1000) {
             ...GatsbyImageSharpFluid
@@ -60,7 +60,7 @@ const RickAndMorty = () => {
       >
         <Img fluid={data.placeholderImage.childImageSharp.fluid} />
         <p>
-          Photo by <a href="https://unsplash.com/@youssefsarhan?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Youssef Sarhan</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+          Photo by <a href="https://unsplash.com/@bhaguz?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Bagus Hernawan</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
         </p>
       </motion.div>
     </motion.div>
