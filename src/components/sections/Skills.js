@@ -40,7 +40,7 @@ const Skills = ({
                 <Star on={true} />
                 <Star on={true} />
                 <Star on={true} />
-                <Star on={true} />
+                <Star on={false} />
               </span>
             </li>
             <li>
@@ -50,17 +50,7 @@ const Skills = ({
                 <Star on={true} />
                 <Star on={true} />
                 <Star on={true} />
-                <Star on={true} />
-              </span>
-            </li>
-            <li>
-              TypeScript
-              <span className="skill_rank">
-                <Star on={true} />
-                <Star on={true} />
-                <Star on={true} />
-                <Star on={true} />
-                <Star on={true} />
+                <Star on={false} />
               </span>
             </li>
             <li>Gatsby
@@ -69,7 +59,7 @@ const Skills = ({
                 <Star on={true} />
                 <Star on={true} />
                 <Star on={true} />
-                <Star on={true} />
+                <Star on={false} />
               </span>
             </li>
             <li>GraphQL
@@ -78,7 +68,7 @@ const Skills = ({
                 <Star on={true} />
                 <Star on={true} />
                 <Star on={true} />
-                <Star on={true} />
+                <Star on={false} />
               </span>
             </li>
             <li>SASS
@@ -87,16 +77,7 @@ const Skills = ({
                 <Star on={true} />
                 <Star on={true} />
                 <Star on={true} />
-                <Star on={true} />
-              </span>
-            </li>
-            <li>Apollo
-            <span className="skill_rank">
-                <Star on={true} />
-                <Star on={true} />
-                <Star on={true} />
-                <Star on={true} />
-                <Star on={true} />
+                <Star on={false} />
               </span>
             </li>
             <li>Nodejs
@@ -105,7 +86,7 @@ const Skills = ({
                 <Star on={true} />
                 <Star on={true} />
                 <Star on={true} />
-                <Star on={true} />
+                <Star on={false} />
               </span>
             </li>
             <li>Express
@@ -114,7 +95,7 @@ const Skills = ({
                 <Star on={true} />
                 <Star on={true} />
                 <Star on={true} />
-                <Star on={true} />
+                <Star on={false} />
               </span>
             </li>
             <li>HTML5
@@ -123,7 +104,7 @@ const Skills = ({
                 <Star on={true} />
                 <Star on={true} />
                 <Star on={true} />
-                <Star on={true} />
+                <Star on={false} />
               </span>
             </li>
             <li>Cascading Style Sheets (CSS)
@@ -132,7 +113,7 @@ const Skills = ({
                 <Star on={true} />
                 <Star on={true} />
                 <Star on={true} />
-                <Star on={true} />
+                <Star on={false} />
               </span>
             </li>
             <li>Mobile Web Development
@@ -141,16 +122,7 @@ const Skills = ({
                 <Star on={true} />
                 <Star on={true} />
                 <Star on={true} />
-                <Star on={true} />
-              </span>
-            </li>
-            <li>Accessibility
-            <span className="skill_rank">
-                <Star on={true} />
-                <Star on={true} />
-                <Star on={true} />
-                <Star on={true} />
-                <Star on={true} />
+                <Star on={false} />
               </span>
             </li>
             <li>Progressive Web Apps
@@ -159,7 +131,35 @@ const Skills = ({
                 <Star on={true} />
                 <Star on={true} />
                 <Star on={true} />
+                <Star on={false} />
+              </span>
+            </li>
+            <li>Front End Development
+            <span className="skill_rank">
                 <Star on={true} />
+                <Star on={true} />
+                <Star on={true} />
+                <Star on={true} />
+                <Star on={false} />
+              </span>
+            </li>
+            <li>Apollo
+            <span className="skill_rank">
+                <Star on={true} />
+                <Star on={true} />
+                <Star on={true} />
+                <Star on={false} />
+                <Star on={false} />
+              </span>
+            </li>
+            <li>
+              TypeScript
+              <span className="skill_rank">
+                <Star on={true} />
+                <Star on={true} />
+                <Star on={true} />
+                <Star on={false} />
+                <Star on={false} />
               </span>
             </li>
             <li>Performance Optimization and Caching
@@ -167,26 +167,26 @@ const Skills = ({
                 <Star on={true} />
                 <Star on={true} />
                 <Star on={true} />
+                <Star on={false} />
+                <Star on={false} />
+              </span>
+            </li>
+            <li>Accessibility
+            <span className="skill_rank">
                 <Star on={true} />
                 <Star on={true} />
+                <Star on={false} />
+                <Star on={false} />
+                <Star on={false} />
               </span>
             </li>
             <li>Testing and Debugging
             <span className="skill_rank">
                 <Star on={true} />
                 <Star on={true} />
-                <Star on={true} />
-                <Star on={true} />
-                <Star on={true} />
-              </span>
-            </li>
-            <li>Front End Networking
-            <span className="skill_rank">
-                <Star on={true} />
-                <Star on={true} />
-                <Star on={true} />
-                <Star on={true} />
-                <Star on={true} />
+                <Star on={false} />
+                <Star on={false} />
+                <Star on={false} />
               </span>
             </li>
           </ul>
@@ -194,58 +194,13 @@ const Skills = ({
         <div className="skill__set">
           <h2>Tools</h2>
           <ul>
-            <li>Git
-            <span className="skill_rank">
-                <Star on={true} />
-                <Star on={true} />
-                <Star on={true} />
-                <Star on={true} />
-                <Star on={true} />
-              </span>
-            </li>
-            <li>MacOS
-            <span className="skill_rank">
-                <Star on={true} />
-                <Star on={true} />
-                <Star on={true} />
-                <Star on={true} />
-                <Star on={true} />
-              </span>
-            </li>
-            <li>Windows
-            <span className="skill_rank">
-                <Star on={true} />
-                <Star on={true} />
-                <Star on={true} />
-                <Star on={true} />
-                <Star on={true} />
-              </span>
-            </li>
-            <li>Linux
-            <span className="skill_rank">
-                <Star on={true} />
-                <Star on={true} />
-                <Star on={true} />
-                <Star on={true} />
-                <Star on={true} />
-              </span>
-            </li>
             <li>Visual Studio Code
             <span className="skill_rank">
                 <Star on={true} />
                 <Star on={true} />
                 <Star on={true} />
                 <Star on={true} />
-                <Star on={true} />
-              </span>
-            </li>
-            <li>Vim
-            <span className="skill_rank">
-                <Star on={true} />
-                <Star on={true} />
-                <Star on={true} />
-                <Star on={true} />
-                <Star on={true} />
+                <Star on={false} />
               </span>
             </li>
             <li>Photoshop
@@ -254,7 +209,7 @@ const Skills = ({
                 <Star on={true} />
                 <Star on={true} />
                 <Star on={true} />
-                <Star on={true} />
+                <Star on={false} />
               </span>
             </li>
             <li>Illustrator
@@ -263,7 +218,7 @@ const Skills = ({
                 <Star on={true} />
                 <Star on={true} />
                 <Star on={true} />
-                <Star on={true} />
+                <Star on={false} />
               </span>
             </li>
             <li>Adobe XD
@@ -272,7 +227,7 @@ const Skills = ({
                 <Star on={true} />
                 <Star on={true} />
                 <Star on={true} />
-                <Star on={true} />
+                <Star on={false} />
               </span>
             </li>
             <li>MS Office
@@ -281,7 +236,7 @@ const Skills = ({
                 <Star on={true} />
                 <Star on={true} />
                 <Star on={true} />
-                <Star on={true} />
+                <Star on={false} />
               </span>
             </li>
             <li>Chrome
@@ -290,7 +245,7 @@ const Skills = ({
                 <Star on={true} />
                 <Star on={true} />
                 <Star on={true} />
-                <Star on={true} />
+                <Star on={false} />
               </span>
             </li>
             <li>Firefox
@@ -299,7 +254,7 @@ const Skills = ({
                 <Star on={true} />
                 <Star on={true} />
                 <Star on={true} />
-                <Star on={true} />
+                <Star on={false} />
               </span>
             </li>
             <li>Slack
@@ -308,7 +263,52 @@ const Skills = ({
                 <Star on={true} />
                 <Star on={true} />
                 <Star on={true} />
+                <Star on={false} />
+              </span>
+            </li>
+            <li>Git
+            <span className="skill_rank">
                 <Star on={true} />
+                <Star on={true} />
+                <Star on={true} />
+                <Star on={false} />
+                <Star on={false} />
+              </span>
+            </li>
+            <li>MacOS
+            <span className="skill_rank">
+                <Star on={true} />
+                <Star on={true} />
+                <Star on={true} />
+                <Star on={false} />
+                <Star on={false} />
+              </span>
+            </li>
+            <li>Vim
+            <span className="skill_rank">
+                <Star on={true} />
+                <Star on={true} />
+                <Star on={false} />
+                <Star on={false} />
+                <Star on={false} />
+              </span>
+            </li>
+            <li>Windows
+            <span className="skill_rank">
+                <Star on={true} />
+                <Star on={true} />
+                <Star on={false} />
+                <Star on={false} />
+                <Star on={false} />
+              </span>
+            </li>
+            <li>Linux
+            <span className="skill_rank">
+                <Star on={true} />
+                <Star on={true} />
+                <Star on={false} />
+                <Star on={false} />
+                <Star on={false} />
               </span>
             </li>
           </ul>
