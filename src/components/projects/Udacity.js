@@ -1,7 +1,8 @@
 import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from "framer-motion"
+import GitHub from "../social/Github"
 
 const Udacity = () => {
   const data = useStaticQuery(graphql`
@@ -18,7 +19,11 @@ const Udacity = () => {
   const [hovered, setHovered] = useState()
 
   return (
-    <motion.div className="project__wrapper" onHoverStart={() => setHovered("udacity")} onHoverEnd={() => setHovered(null)}>
+    <motion.div
+      className="project__wrapper"
+      onHoverStart={() => setHovered("udacity")}
+      onHoverEnd={() => setHovered(null)}
+    >
       <AnimatePresence>
         {hovered === "udacity" && (
           <motion.div
@@ -45,6 +50,23 @@ const Udacity = () => {
               <li>Sass</li>
               <li>Progressive Web App</li>
             </ul>
+            <div
+              style={{
+                display: "grid",
+                gridAutoFlow: "column",
+                alignItems: "center",
+              }}
+            >
+              <div style={{ width: "100px" }}>
+                <GitHub href="https://github.com/kalm42/mws-restaurant-stage-3" />
+              </div>
+              <p>
+                <a href="https://github.com/kalm42/wedding-frontend">
+                  Click here
+                </a>{" "}
+                or on the icon to view the project code.
+              </p>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -60,7 +82,14 @@ const Udacity = () => {
       >
         <Img fluid={data.placeholderImage.childImageSharp.fluid} />
         <p>
-          Photo by <a href="https://unsplash.com/@lastly?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tyler Lastovich</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+          Photo by{" "}
+          <a href="https://unsplash.com/@lastly?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+            Tyler Lastovich
+          </a>{" "}
+          on{" "}
+          <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+            Unsplash
+          </a>
         </p>
       </motion.div>
     </motion.div>

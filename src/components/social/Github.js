@@ -1,7 +1,8 @@
 import React, { useState } from "react"
+import PropTypes from "prop-types"
 import { motion } from "framer-motion"
 
-const GitHub = () => {
+const GitHub = ({ href }) => {
   const [isHovered, setHovered] = useState(false)
   return (
     <motion.div
@@ -11,11 +12,7 @@ const GitHub = () => {
       onHoverEnd={() => setHovered(false)}
       whileTap={{ scale: 0.9 }}
     >
-      <a
-        href="https://github.com/kalm42"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a href={href} target="_blank" rel="noopener noreferrer">
         <svg
           version="1"
           xmlns="http://www.w3.org/2000/svg"
@@ -29,6 +26,14 @@ const GitHub = () => {
       </a>
     </motion.div>
   )
+}
+
+GitHub.propTypes = {
+  href: PropTypes.string,
+}
+
+GitHub.defaultProps = {
+  href: "https://github.com/kalm42",
 }
 
 export default GitHub

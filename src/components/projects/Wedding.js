@@ -1,7 +1,8 @@
 import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from "framer-motion"
+import GitHub from "../social/Github"
 
 const Wedding = () => {
   const data = useStaticQuery(graphql`
@@ -18,7 +19,11 @@ const Wedding = () => {
   const [hovered, setHovered] = useState()
 
   return (
-    <motion.div className="project__wrapper" onHoverStart={() => setHovered("wedding")} onHoverEnd={() => setHovered(null)}>
+    <motion.div
+      className="project__wrapper"
+      onHoverStart={() => setHovered("wedding")}
+      onHoverEnd={() => setHovered(null)}
+    >
       <AnimatePresence>
         {hovered === "wedding" && (
           <motion.div
@@ -48,6 +53,38 @@ const Wedding = () => {
               <li>Yoga</li>
               <li>Apollo</li>
             </ul>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gridGap: "40px",
+              }}
+            >
+              <div>
+                <h4>Frontend</h4>
+                <div style={{ width: "100px" }}>
+                  <GitHub href="https://github.com/kalm42/wedding-frontend" />
+                </div>
+                <p>
+                  <a href="https://github.com/kalm42/wedding-frontend">
+                    Click here
+                  </a>{" "}
+                  or on the icon to view the project code.
+                </p>
+              </div>
+              <div>
+                <h4>Backend</h4>
+                <div style={{ width: "100px" }}>
+                  <GitHub href="https://github.com/kalm42/wedding-backend" />
+                </div>
+                <p>
+                  <a href="https://github.com/kalm42/wedding-backend">
+                    Click here
+                  </a>{" "}
+                  or on the icon to view the project code.
+                </p>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -63,7 +100,14 @@ const Wedding = () => {
       >
         <Img fluid={data.placeholderImage.childImageSharp.fluid} />
         <p>
-          Photo by <a href="https://unsplash.com/@ronmcclenny?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Ron McClenny</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+          Photo by{" "}
+          <a href="https://unsplash.com/@ronmcclenny?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+            Ron McClenny
+          </a>{" "}
+          on{" "}
+          <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+            Unsplash
+          </a>
         </p>
       </motion.div>
     </motion.div>
