@@ -16,7 +16,6 @@
 .resume__work {
   @include min-desktop() {
     display: grid;
-    align-items: center;
     grid-template-columns: 2fr 3fr;
     grid-template-areas: "employer description" "date description";
   }

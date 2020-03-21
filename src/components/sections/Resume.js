@@ -31,10 +31,33 @@ const Resume = ({
         <h1>Resume</h1>
         <div className="resume__works">
           <h2>Work Experience</h2>
-
           <div className="resume__work">
-            <h3>Kimmel &amp; Associates</h3>
-            <p>February 2019 – June 2019</p>
+            <div className="resume__details">
+              <h3>Southwest Airlines</h3>
+              <p>November 2019 – March 2020</p>
+            </div>
+            <div className="resume__job">
+              <h4>React Developer</h4>
+              <p>
+                Agile workflow included daily standups, sprint review, retro,
+                and the occasional waterfall or kanban workflow when working
+                with other groups. Self assigned jira cards with code review
+                done company wide. Completed work check with a desk check by
+                Business Analysit, Product Managers, Quality Assurance, and/or
+                Product Owners.
+              </p>
+              <p>
+                The codebase was a list of libraries that consisted of Single
+                Page Applications (SPA) and React component libraries. The SPAs
+                worked with Adobe Target and multiple REST endpoints.
+              </p>
+            </div>
+          </div>
+          <div className="resume__work">
+            <div className="resume__details">
+              <h3>Kimmel &amp; Associates</h3>
+              <p>February 2019 – June 2019</p>
+            </div>
             <div className="resume__job">
               <h4>Junior Frontend Developer</h4>
               <p>
@@ -47,8 +70,10 @@ const Resume = ({
             </div>
           </div>
           <div className="resume__work">
-            <h3>Kimmel &amp; Associates</h3>
-            <p>November 2019</p>
+            <div className="resume__details">
+              <h3>Kimmel &amp; Associates</h3>
+              <p>November 2019</p>
+            </div>
             <div className="resume__job">
               <h4>Intern - Frontend Developer</h4>
               <p>

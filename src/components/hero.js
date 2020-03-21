@@ -25,8 +25,7 @@ const Hero = () => {
   `)
 
   const ImageData = {
-    ...data.thinImage.childImageSharp.fluid,
-    srcSet: `${data.thinImage.childImageSharp.fluid.srcSet}${data.wideImage.childImageSharp.fluid.srcSet}`,
+    ...data.wideImage.childImageSharp.fluid,
   }
   return <Img fluid={ImageData} className="hero" />
 }
