@@ -39,9 +39,9 @@ const ContactMe = ({
             <p>KyleMelton.dev</p>
           </div>
           <address>
-            2184 Channing Way #418
+            2728 McKinnon St #710
             <br />
-            Idaho Falls, ID 83404
+            Dallas, TX 75201
           </address>
         </div>
         <div className="contact-me__social">
